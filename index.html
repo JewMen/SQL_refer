@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <link rel="stylesheet" href="css/homepage.css">
+    <!--引用外界CSS -->
+    <script src="js/homepage.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best</title>
+    <!-- <style>
+    </style> -->
+</head>
+<!----------------------------------------------------------------------------------------------------------------------------------------------->
+<body>
+    <center>
+        <table width="81.5%" height="auto" border="0" style="border-collapse: collapse;">
+            <tr>
+                <td width="5%"bgcolor="#CAFFFF">
+                    <img src="img/一二布布.png" width="200px" height="50px">
+                </td>
+                <td width="50%" bgcolor="#CAFFFF" style="text-align: center;">
+                    <a style="font-size: 18px; font-family: Arial, sans-serif; display: block; width: 100%; text-decoration: none; color: #000; text-align: center; padding: 10px;">Best</a>
+                </td>
+            </tr>
+        </table>
+    </center>
+    </center>
+
+    <table width="80%" align="center">
+        <td width="60%" valign="top">
+            <div class="main-content">
+                <!-- 可摺疊內容 -->
+                <!--手續費公式-->
+                <details off>
+                    <summary>資料庫操作</summary>
+                    <p>建立資料庫<br>
+                        CREATE DATABASE mydatabase;<br><br>
+                
+                        使用資料庫<br>
+                        USE mydatabase;<br><br>
+                
+                        刪除資料庫<br>
+                        DROP DATABASE mydatabase;<br><br>
+                        
+                        查看現有資料庫<br>
+                        SHOW DATABASES;</p>
+                </details>
+                
+                <details off>
+                    <summary>表格操作</summary>
+                    <p>建立表格<br>
+                        CREATE TABLE users (<br>
+                            id INT AUTO_INCREMENT PRIMARY KEY,<br>
+                            name VARCHAR(50) NOT NULL,<br>
+                            email VARCHAR(100) UNIQUE,<br>
+                            age INT DEFAULT 18,<br>
+                            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP<br>
+                        );<br><br>
+                        
+                        查看表格結構<br>
+                        DESC users;<br><br>
+                        
+                        查看所有表格<br>
+                        SHOW TABLES;<br><br>
+                        
+                        修改表格<br>
+                        ALTER TABLE users ADD COLUMN phone VARCHAR(15); -- 新增欄位<br>
+                        ALTER TABLE users MODIFY COLUMN age TINYINT; -- 修改欄位型態<br>
+                        ALTER TABLE users DROP COLUMN phone; -- 刪除欄位<br>
+                        ALTER TABLE users RENAME TO customers; -- 更改表格名稱<br><br>
+                        
+                        刪除表格<br>
+                        DROP TABLE users;</p>
+                </details>
+                
+                <details off>
+                    <summary>插入資料</summary>
+                    <P>單筆插入<br>
+                        INSERT INTO users (name, email, age) VALUES ('Alice', 'alice@example.com', 25);<br><br>
+                        
+                        多筆插入<br>
+                        INSERT INTO users (name, email, age) VALUES<br>
+                            ('Bob', 'bob@example.com', 30),<br>
+                            ('Charlie', 'charlie@example.com', 22);<br><br>
+                        
+                        插入當前時間<br>
+                        INSERT INTO users (name, created_at) VALUES ('David', NOW());</P>
+                </details>
+                
+                <details off>
+                    <summary>查詢資料</summary>
+                    <P>基本查詢<br>
+                        SELECT * FROM users;<br>
+                        SELECT name, email FROM users;<br><br>
+                        
+                        條件查詢<br>
+                        SELECT * FROM users WHERE age > 25;<br>
+                        SELECT * FROM users WHERE name = 'Alice';<br><br>
+                        
+                        模糊搜尋 (LIKE)<br>
+                        SELECT * FROM users WHERE name LIKE 'A%'; -- 以 A 開頭<br>
+                        SELECT * FROM users WHERE name LIKE '%e'; -- 以 e 結尾<br>
+                        SELECT * FROM users WHERE name LIKE '%li%'; -- 包含 'li'<br><br>
+                        
+                        排序 (ORDER BY)<br>
+                        SELECT * FROM users ORDER BY age ASC;  -- 按年齡升序<br>
+                        SELECT * FROM users ORDER BY age DESC; -- 按年齡降序<br><br>
+                        
+                        限制筆數 (LIMIT)<br>
+                        SELECT * FROM users LIMIT 5; -- 只取前 5 筆<br>
+                        SELECT * FROM users LIMIT 5 OFFSET 2; -- 跳過前 2 筆，取 5 筆</P>
+                </details>
+                
+                <details off>
+                    <summary>更新與刪除</summary>
+                    <P>更新資料<br>
+                        UPDATE users SET age = 28 WHERE name = 'Alice';<br>
+                        UPDATE users SET email = 'newemail@example.com' WHERE id = 1;<br><br>
+                        
+                        刪除資料<br>
+                        DELETE FROM users WHERE name = 'Bob';<br>
+                        DELETE FROM users WHERE age < 20; -- 刪除年齡小於 20 的用戶<br><br>
+                        
+                        清空表格 (但不刪除表格)<br>
+                        TRUNCATE TABLE users;</P>
+                </details>
+                
+                <details off>
+                    <summary>進階查詢</summary>
+                    <P>聚合函數<br>
+                        SELECT COUNT(*) FROM users;  -- 計算總筆數<br>
+                        SELECT AVG(age) FROM users;  -- 計算平均年齡<br>
+                        SELECT MAX(age) FROM users;  -- 取得最大年齡<br>
+                        SELECT MIN(age) FROM users;  -- 取得最小年齡<br><br>
+                
+                        GROUP BY 群組查詢<br>
+                        SELECT age, COUNT(*) FROM users GROUP BY age;<br><br>
+                
+                        HAVING 篩選群組<br>
+                        SELECT age, COUNT(*) FROM users GROUP BY age HAVING COUNT(*) > 1;<br><br>
+                        
+                        JOIN (關聯查詢)<br>
+                        SELECT orders.id, users.name, orders.amount<br>  
+                        FROM orders<br>
+                        JOIN users ON orders.user_id = users.id;<br><br>
+                        
+                        子查詢<br>
+                        SELECT * FROM users WHERE age > (SELECT AVG(age) FROM users);</P>
+                </details>
+                
+                <details off>
+                    <summary>鍵與索引</summary>
+                    <P>主鍵（PRIMARY KEY）<br>
+                        CREATE TABLE products (<br>
+                            id INT PRIMARY KEY AUTO_INCREMENT,<br>
+                            name VARCHAR(100) NOT NULL<br>
+                        );<br><br>
+                        
+                        唯一索引（UNIQUE）<br>
+                        CREATE TABLE employees (<br>
+                            id INT AUTO_INCREMENT PRIMARY KEY,<br>
+                            email VARCHAR(100) UNIQUE<br>
+                        );<br><br>
+                
+                        普通索引（INDEX）<br>
+                        CREATE INDEX idx_name ON users(name);<br><br>
+                        
+                        刪除索引<br>
+                        DROP INDEX idx_name ON users;</P>
+                </details>
+                
+                <details off>
+                    <summary>外鍵</summary>
+                    <P>CREATE TABLE orders (<br>
+                        id INT PRIMARY KEY AUTO_INCREMENT,<br>
+                        user_id INT,<br>
+                        FOREIGN KEY (user_id) REFERENCES users(id)<br>
+                    );</P>
+                </details>
+                
+                <details off>
+                    <summary>交易控制 (Transaction)</summary>
+                    <P>開啟交易<br>
+                        START TRANSACTION;<br><br>
+                
+                        提交變更<br>
+                        COMMIT;<br><br>
+                
+                        回滾 (撤銷變更)<br>
+                        ROLLBACK;</P>
+                </details>
+                
+                <details off>
+                    <summary>儲存程序 (Stored Procedure)</summary>
+                    <P>DELIMITER //<br>
+                        CREATE PROCEDURE GetUsers()<br>
+                        BEGIN<br>
+                            SELECT * FROM users;<br>
+                        END //<br>
+                        DELIMITER ;<br><br>
+                
+                        執行儲存程序<br>
+                        CALL GetUsers();</P>
+                </details>
+                
+                <details off>
+                    <summary>觸發器 (Trigger)</summary>
+                    <P>在 users 表上新增觸發器<br>
+                        DELIMITER //<br>
+                        CREATE TRIGGER before_user_insert<br>
+                        BEFORE INSERT ON users<br>
+                        FOR EACH ROW<br>
+                        BEGIN<br>
+                            SET NEW.created_at = NOW();<br>
+                        END;<br>
+                        //<br>
+                        DELIMITER ;</P>
+                </details>
+                
+                <details off>
+                    <summary>權限管理</summary>
+                    <P>建立新使用者<br>
+                        CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';<br><br>
+                        
+                        授權權限<br>
+                        GRANT ALL PRIVILEGES ON mydatabase.* TO 'newuser'@'localhost';<br><br>
+                        
+                        查看使用者權限<br>
+                        SHOW GRANTS FOR 'newuser'@'localhost';<br><br>
+                        
+                        撤銷權限<br>
+                        REVOKE ALL PRIVILEGES ON mydatabase.* FROM 'newuser'@'localhost';<br><br>
+                        
+                        刪除使用者<br>
+                        DROP USER 'newuser'@'localhost';</P>
+                </details>
+                
+            </div>
+        </td>
+</body>
+</html>

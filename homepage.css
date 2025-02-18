@@ -1,0 +1,149 @@
+details{
+    margin-top: 10px;  /* 增加上方間距 */
+    margin-bottom: 10px;
+}
+li {
+    line-height: 20px;
+    margin-top: 10px;  /* 增加上方間距 */
+    margin-bottom: 10px;  /* 增加下方間距 */
+}
+.dropdown {
+    position: relative; /* 確保下拉選單相對於父元素定位 */
+    display: inline-block; /* 讓選單水平排列 */
+    margin: 10px 1px;
+}
+
+/* 下拉內容的隱藏樣式 */
+.dropdown-content {
+    display: none; /* 預設隱藏 */
+    position: absolute; /* 絕對定位，讓它在下方出現 */
+    background-color: #f9f9f9; /* 背景顏色 */
+    min-width: 130px; /* 下拉選單的寬度 */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* 增加陰影效果 */
+    z-index: 1; /* 確保內容顯示在其他元素上方 */
+}
+
+/* 下拉選單項目樣式 */
+.dropdown-content a {
+    color: black; /* 文字顏色 */
+    padding: 12px 16px; /* 內距 */
+    text-decoration: none; /* 移除超連結的底線 */
+    display: block; /* 每個選項佔一行 */
+}
+
+/* 滑鼠移入時的效果 */
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* 滑鼠移過的背景顏色 */
+}
+
+/* 當滑鼠移到父元素時顯示下拉內容 */
+.dropdown:hover .dropdown-content {
+    display: block; /* 顯示下拉內容 */
+}
+
+/* 選單的外觀 */
+.dropdown button {
+    background-color: #ecbe78c4; /* 按鈕背景色 */
+    color: white; /* 按鈕文字色 */
+    padding: 5px 18px; /* 按鈕內距 */
+    border: none; /* 移除邊框 */
+    border-radius: 8px; /* 圓角 */
+    cursor: pointer; /* 鼠標樣式 */
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    width:80%;
+}
+nav {
+    background-color: #555;
+    color: #fff;
+    padding: 0.5rem;
+    text-align: center;
+}
+.container {
+    display: flex;
+    margin: 1rem;
+}
+.main-content {
+    flex: 3;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.sidebar {
+    flex: 1;
+    margin-left: 1rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.sidebar a {
+    display: block;
+    color: #007BFF;
+    margin: 0.5rem 0;
+    text-decoration: none;
+}
+.sidebar a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+p {
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #333;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.collapse-content {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #e9ecef; /* 更清爽的背景顏色 */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.collapse-header {
+    cursor: pointer;
+    /* background-color: #007BFF; 藍色背景 */
+    color: rgb(0, 0, 0);
+    padding: 1rem;
+    border-radius: 2px;
+    text-align: center;
+    width:20%;
+}
+.collapse-header:hover {
+    background-color: #e6e7e9; /* 深藍色背景 */
+}
+.dropdown button:hover {
+    background-color: #0056b3; /* 改變按鈕顏色 */
+}
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        margin-left: 0;
+        margin-top: 1rem;
+        width:40%;
+    }
+}
