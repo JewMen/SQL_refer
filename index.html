@@ -192,33 +192,33 @@
                 <details off>
                     <summary>條件判斷 (CASE)</summary>
                     <p>基本用法
-                        SELECT 來源欄位, 
-                            CASE 
-                                WHEN 條件欄位 < 數值 THEN '符合條件名稱'
-                                WHEN 條件欄位 BETWEEN 最小值 AND 最大值 THEN '符合條件名稱'
-                                ELSE '符合條件名稱'
-                            END AS 結果欄位名稱
-                        FROM 表格名稱;
+                        SELECT 來源欄位,<br> 
+                            CASE <br>
+                                WHEN 條件欄位 < 數值 THEN '符合條件名稱'<br>
+                                WHEN 條件欄位 BETWEEN 最小值 AND 最大值 THEN '符合條件名稱'<br>
+                                ELSE '符合條件名稱'<br>
+                            END AS 結果欄位名稱<br>
+                        FROM 表格名稱;<br>
                     </p>
-                
-                    <p>搭配 UPDATE 使用
-                        UPDATE 表格名稱
-                        SET 目標欄位名稱 = CASE 
-                            WHEN 條件欄位 < 數值 THEN '符合條件名稱'
-                            WHEN 條件欄位 BETWEEN 最小值 AND 最大值 THEN '符合條件名稱'
-                            ELSE '符合條件名稱'
-                        END
-                        WHERE 其他條件;
+                    <br>
+                    <p>搭配 UPDATE 使用<br>
+                        UPDATE 表格名稱<br>
+                        SET 目標欄位名稱 = CASE<br> 
+                            WHEN 條件欄位 < 數值 THEN '符合條件名稱'<br>
+                            WHEN 條件欄位 BETWEEN 最小值 AND 最大值 THEN '符合條件名稱'<br>
+                            ELSE '符合條件名稱'<br>
+                        END<br>
+                        WHERE 其他條件;<br>
                     </p>
-                
-                    <p>搭配 ORDER BY 使用
-                        SELECT * FROM 表格名稱
-                        ORDER BY 
-                            CASE 
-                                WHEN 條件欄位 < 數值 THEN 排序優先級1
-                                WHEN 條件欄位 BETWEEN 最小值 AND 最大值 THEN 排序優先級2
-                                ELSE 排序優先級3
-                            END;
+                    <br>
+                    <p>搭配 ORDER BY 使用<br>
+                        SELECT * FROM 表格名稱<br>
+                        ORDER BY <br>
+                            CASE <br>
+                                WHEN 條件欄位 < 數值 THEN 排序優先級1 <br>
+                                WHEN 條件欄位 BETWEEN 最小值 AND 最大值 THEN 排序優先級2<br>
+                                ELSE 排序優先級3 <br>
+                            END; <br>
                     </p>
                 </details>
                 <details off>
