@@ -189,7 +189,38 @@
                         回滾 (撤銷變更)<br>
                         ROLLBACK;</P>
                 </details>
+                <details off>
+                    <summary>條件判斷 (CASE)</summary>
+                    <p>基本用法
+                        SELECT 來源欄位, 
+                            CASE 
+                                WHEN 條件欄位 < 數值 THEN '符合條件名稱'
+                                WHEN 條件欄位 BETWEEN 最小值 AND 最大值 THEN '符合條件名稱'
+                                ELSE '符合條件名稱'
+                            END AS 結果欄位名稱
+                        FROM 表格名稱;
+                    </p>
                 
+                    <p>搭配 UPDATE 使用
+                        UPDATE 表格名稱
+                        SET 目標欄位名稱 = CASE 
+                            WHEN 條件欄位 < 數值 THEN '符合條件名稱'
+                            WHEN 條件欄位 BETWEEN 最小值 AND 最大值 THEN '符合條件名稱'
+                            ELSE '符合條件名稱'
+                        END
+                        WHERE 其他條件;
+                    </p>
+                
+                    <p>搭配 ORDER BY 使用
+                        SELECT * FROM 表格名稱
+                        ORDER BY 
+                            CASE 
+                                WHEN 條件欄位 < 數值 THEN 排序優先級1
+                                WHEN 條件欄位 BETWEEN 最小值 AND 最大值 THEN 排序優先級2
+                                ELSE 排序優先級3
+                            END;
+                    </p>
+                </details>
                 <details off>
                     <summary>儲存程序 (Stored Procedure)</summary>
                     <P>DELIMITER //<br>
